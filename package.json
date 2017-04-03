@@ -37,7 +37,8 @@
         "node":                           ">=4.0.0"
     },
     "scripts": {
-        "prepublish": "eslint --config eslint.json postcss.js posthtml.js"
+        "prepublish": "eslint --config eslint.json postcss.js posthtml.js",
+        "sample":     "node sample.js"
     }
 }
 
