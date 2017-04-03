@@ -1,0 +1,43 @@
+{
+    "name":        "style-scope",
+    "homepage":    "http://github.com/rse/style-scope",
+    "description": "PostCSS and PostHTML plugins for locally scoped style",
+    "version":     "0.0.0",
+    "license":     "MIT",
+    "author": {
+        "name":    "Ralf S. Engelschall",
+        "email":   "rse@engelschall.com",
+        "url":     "http://engelschall.com"
+    },
+    "keywords": [
+        "postcss", "posthtml", "css", "html", "scope"
+    ],
+    "repository": {
+        "type": "git",
+        "url":  "git://github.com/rse/style-scope.git"
+    },
+    "bugs": {
+        "url":  "http://github.com/rse/style-scope/issues"
+    },
+    "devDependencies": {
+        "eslint":                         "~3.19.0",
+        "babel-eslint":                   "~7.2.1",
+        "posthtml":                       "~0.9.2",
+        "postcss":                        "~5.2.16"
+    },
+    "peerDependencies": {
+        "posthtml":                       "~0.9.2",
+        "postcss":                        "~5.2.16"
+    },
+    "dependencies": {
+        "postcss":                        "~5.2.16",
+        "postcss-selector-parser":        "~2.2.3"
+    },
+    "engines": {
+        "node":                           ">=4.0.0"
+    },
+    "scripts": {
+        "prepublish": "eslint --config eslint.json postcss.js posthtml.js"
+    }
+}
+
