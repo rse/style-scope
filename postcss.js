@@ -60,6 +60,8 @@ module.exports = postcss.plugin("postcss-scope", (options = {}) => {
                 node.selector = postcssSelectorParser((node) => {
                     node.walk((node /*, index */) => {
                         if (node.type === "selector") {
+                            if (node.parent && node.parent.type === "pseudo" && node.parent.value !== ":not")
+                                return
                             const mkAttr = () =>
                                 postcssSelectorParser.attribute({ value: `${options.attrPrefix}${scope}` })
                             let insert = []
