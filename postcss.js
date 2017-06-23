@@ -29,9 +29,10 @@ const postcssSelectorParser = require("postcss-selector-parser")
 module.exports = postcss.plugin("postcss-scope", (options = {}) => {
     /*  default options  */
     options = Object.assign({}, {
-        atDirective: "scope",
-        attrPrefix:  "scope-",
-        rootScope:   "none"
+        atDirective:    "scope",
+        atDirectiveEsc: "scope-esc",
+        attrPrefix:     "scope-",
+        rootScope:      "none"
     }, options)
 
     /*  provide tree processor  */
@@ -54,6 +55,10 @@ module.exports = postcss.plugin("postcss-scope", (options = {}) => {
                     /*  @<directive> <id>;  */
                     scope = arg
                 remove.push(node)
+            }
+            else if (typeof node === "object" && node.type === "atrule" && node.name === options.atDirectiveEsc) {
+                /*  rename escaped directive to non-escaped directive  */
+                node.name = options.atDirective
             }
             else if (typeof node === "object" && node.type === "rule" && scope !== "none") {
                 /*  <selector> { ... }  */

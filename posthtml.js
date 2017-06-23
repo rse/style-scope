@@ -26,9 +26,10 @@
 module.exports = function (options) {
     /*  default options  */
     options = Object.assign({}, {
-        attrName:   "scope",
-        attrPrefix: "scope-",
-        rootScope:  "none"
+        attrName:    "scope",
+        attrNameEsc: "scope-esc",
+        attrPrefix:  "scope-",
+        rootScope:   "none"
     }, options)
 
     /*  provide tree processor  */
@@ -43,6 +44,13 @@ module.exports = function (options) {
             if (typeof node.attrs === "object" && node.attrs[options.attrName]) {
                 scope = node.attrs[options.attrName]
                 delete node.attrs[options.attrName]
+            }
+
+            /*  rename escaped attribute to non-escaped attribute  */
+            if (typeof node.attrs === "object" && node.attrs[options.attrNameEsc]) {
+                let value = node.attrs[options.attrNameEsc]
+                delete node.attrs[options.attrNameEsc]
+                node.attrs[options.attrName] = value
             }
 
             /*  inject scope-xxx attribute inside scoped context  */
