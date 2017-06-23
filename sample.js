@@ -9,7 +9,7 @@ const html = `
 <!-- HTML -->
 <div foo="bar" quux>
     <div scope="s1">
-        <span scope-esc="test">a1</span>
+        <span>a1</span>
         <div scope="s2">
             <span>a2</span>
             <span scope="none">a2</span>
@@ -29,7 +29,6 @@ const css = `
     @scope none {
         .bar {}
     }
-    @scope-esc test;
     .quux {}
 }
 #foo > .bar[quux] {}
