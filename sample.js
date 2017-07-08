@@ -38,11 +38,14 @@ const css = `
 .foo {}
 `
 
+console.log("HTML: input:", html)
+console.log("CSS: input:", css)
+
 posthtml([ posthtmlScope({ rootScope: "sample" }) ])
     .process(html, {})
-    .then((result) => { console.log(result.html) })
+    .then((result) => { console.log("HTML: output:", result.html) })
 
 postcss([ postcssScope({ rootScope: "sample" }) ])
     .process(css, {})
-    .then((result) => { console.log(result.css) })
+    .then((result) => { console.log("CSS: output:", result.css) })
 
