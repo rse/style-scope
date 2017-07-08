@@ -105,7 +105,8 @@ module.exports = postcss.plugin("postcss-scope", (options = {}) => {
                 var anchor = node
                 var nodes = node.nodes.slice(0)
                 nodes.forEach((node) => {
-                    node.after(anchor)
+                    node.remove()
+                    anchor.parent.insertAfter(anchor, node)
                     anchor = node
                 })
             }
