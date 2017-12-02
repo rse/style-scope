@@ -68,7 +68,7 @@ module.exports = postcss.plugin("postcss-scope", (options = {}) => {
                             if (node.parent && node.parent.type === "pseudo" && node.parent.value !== ":not")
                                 return
                             const mkAttr = () =>
-                                postcssSelectorParser.attribute({ value: `${options.attrPrefix}${scope}` })
+                                postcssSelectorParser.attribute({ attribute: `${options.attrPrefix}${scope}` })
                             let insert = []
                             node.each((subnode) => {
                                 if (subnode.type === "combinator")
@@ -80,7 +80,7 @@ module.exports = postcss.plugin("postcss-scope", (options = {}) => {
                             node.append(mkAttr())
                         }
                     })
-                }).process(node.selector, { lossless: true }).result
+                }).processSync(node.selector, { lossless: true })
             }
 
             /*  walk down all child nodes  */
