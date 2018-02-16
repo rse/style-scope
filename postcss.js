@@ -69,15 +69,26 @@ module.exports = postcss.plugin("postcss-scope", (options = {}) => {
                                 return
                             const mkAttr = () =>
                                 postcssSelectorParser.attribute({ attribute: `${options.attrPrefix}${scope}` })
-                            let insert = []
+                            let insertBefore = []
+                            let handled = false
                             node.each((subnode) => {
-                                if (subnode.type === "combinator")
-                                    insert.push(subnode)
+                                if (subnode.type === "pseudo") {
+                                    if (!handled) {
+                                        insertBefore.push(subnode)
+                                        handled = true
+                                    }
+                                }
+                                else if (subnode.type === "combinator") {
+                                    if (!handled)
+                                        insertBefore.push(subnode)
+                                    handled = false
+                                }
                             })
-                            insert.forEach((subnode) => {
+                            insertBefore.forEach((subnode) => {
                                 node.insertBefore(subnode, mkAttr())
                             })
-                            node.append(mkAttr())
+                            if (!handled)
+                                node.append(mkAttr())
                         }
                     })
                 }).processSync(node.selector, { lossless: true })

@@ -35,7 +35,7 @@ const css = `
 #foo.bar.quux:hover:not(foo, bar, quux) {}
 @scope s3;
 #foo + .bar[baz='quux'] ~ quux {}
-.foo {}
+.foo::placeholder:placeholder-shown {}
 `
 
 console.log("HTML: input:", html)
