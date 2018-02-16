@@ -46,6 +46,6 @@ posthtml([ posthtmlScope({ rootScope: "sample" }) ])
     .then((result) => { console.log("HTML: output:", result.html) })
 
 postcss([ postcssScope({ rootScope: "sample" }) ])
-    .process(css, {})
+    .process(css, { from: undefined })
     .then((result) => { console.log("CSS: output:", result.css) })
 
