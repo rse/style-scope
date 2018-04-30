@@ -21,17 +21,17 @@
     },
     "devDependencies": {
         "eslint":                         "~4.19.1",
-        "babel-eslint":                   "~8.2.2",
+        "babel-eslint":                   "~8.2.3",
         "posthtml":                       "~0.11.3",
-        "postcss":                        "~6.0.21"
+        "postcss":                        "~6.0.22"
     },
     "peerDependencies": {
         "posthtml":                       "~0.11.3",
-        "postcss":                        "~6.0.21"
+        "postcss":                        "~6.0.22"
     },
     "dependencies": {
-        "postcss":                        "~6.0.21",
-        "postcss-selector-parser":        "~3.1.1"
+        "postcss":                        "~6.0.22",
+        "postcss-selector-parser":        "~4.0.0"
     },
     "engines": {
         "node":                           ">=4.0.0"
