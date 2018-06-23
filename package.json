@@ -2,7 +2,7 @@
     "name":        "style-scope",
     "homepage":    "http://github.com/rse/style-scope",
     "description": "PostCSS and PostHTML plugins for locally scoped style",
-    "version":     "0.9.12",
+    "version":     "0.9.13",
     "license":     "MIT",
     "author": {
         "name":    "Ralf S. Engelschall",
