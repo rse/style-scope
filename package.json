@@ -29,7 +29,7 @@
         "postcss":                        ">=8.0.0"
     },
     "dependencies": {
-        "postcss-selector-parser":        "6.0.15"
+        "postcss-selector-parser":        "7.1.6"
     },
     "engines": {
         "node":                           ">=10.0.0"
